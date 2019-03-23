@@ -27,7 +27,7 @@ body{
 	border-style: solid;
 	/*border-radius: 4px;  --- round corners ---*/ 
 	border-color: #ccc;
-	box-shadow: 4px 6px;
+	box-shadow: 6px 8px #00423b;
 }
 
 h1{
