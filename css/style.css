@@ -47,12 +47,19 @@ h2 span{
 h2{
 	border-bottom: 2px solid #FFCDB2;
 	color: #FFCDB2;
-	margin: 10px 10px; 
+	/* margin: 10px 10px; */ 
 	text-align: center;	
 	font-size: 18px;
 
 }
 
+h3{
+	border-bottom: 2px solid #FFCDB2;
+	color: #FFCDB2;
+	margin: 10px 10px; 
+	text-align: center;	
+	font-size: 14px;
+	
 
 /*
 .box{
