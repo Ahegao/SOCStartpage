@@ -147,7 +147,7 @@ a {
 	border: 1px solid transparent;
 }
 
-/* Use the site's favicon in place of the old folder glyph. */
+/* Use 16px favicons in place of the old folder glyph. */
 a::before { content: none !important; display: none !important; }
 
 a .link-icon {
@@ -156,12 +156,15 @@ a .link-icon {
 	flex: 0 0 16px;
 	object-fit: contain;
 	border-radius: 3px;
+	filter: grayscale(1) brightness(1.15);
+	opacity: .78;
 }
 
 a:hover {
 	background: var(--surface-hi);
 	border-color: rgba(61, 174, 233, .45);
 }
+a:hover .link-icon { opacity: .95; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
 .statusbar {
