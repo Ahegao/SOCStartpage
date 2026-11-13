@@ -1,90 +1,179 @@
-@font-face {
-	font-family: "Press Start 2P";
-	src: url(../fonts/PressStart2P.ttf);
+/* KDE Plasma-inspired dark startpage
+   Palette: graphite surfaces, cool silver text, restrained warm accent. */
+
+:root {
+  color-scheme: dark;
+  --bg: #17191c;
+  --surface: rgba(39, 42, 47, 0.96);
+  --surface-raised: #30343a;
+  --border: #555b63;
+  --text: #e2e3e5;
+  --muted: #aeb3ba;
+  --accent: #d5b38c;
+  --accent-hover: #f0cda5;
+  --shadow: rgba(0, 0, 0, 0.48);
 }
 
-body{
-	background-image: url(../img/bg.jpg);
-	/*background-color: #202124;*/
-	font-family: "Press Start 2P", sans-serif;
+* {
+  box-sizing: border-box;
 }
 
-.clock-container{
-	text-align: center;
-	color: #ccc;
-	border-style: double;
-	margin: 0 33.33%;
-	padding: 10px 0;
+html {
+  min-height: 100%;
+  background: var(--bg);
 }
 
-.container1{
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background: #6D6875;
-	max-width: 480px;
-	border-style: solid;
-	/*border-radius: 4px;  --- round corners ---*/ 
-	border-color: #FFCDB2;
-	box-shadow: 6px 8px #121212;
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 28px 16px;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  font-family: "Inter", "Noto Sans", "Segoe UI", system-ui, sans-serif;
+  background-color: var(--bg);
+  /* CSS-only atmospheric backdrop; no old raster wallpaper required. */
+  background-image:
+    radial-gradient(ellipse at 50% 8%, rgba(139, 148, 158, 0.17), transparent 48%),
+    radial-gradient(ellipse at 12% 88%, rgba(87, 100, 112, 0.13), transparent 42%),
+    linear-gradient(145deg, #202328 0%, #17191c 55%, #22252a 100%);
+  background-attachment: fixed;
 }
 
-h1{
-	color: #FFCDB2;
-	text-align: center;	
-	font-size: 24px;
-	line-height: 1.6;
+.container1 {
+  width: min(100%, 520px);
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow:
+    0 18px 48px var(--shadow),
+    0 2px 8px rgba(0, 0, 0, 0.28),
+    inset 0 1px rgba(255, 255, 255, 0.035);
+  overflow: hidden;
+  backdrop-filter: blur(14px);
 }
 
-h2 span{
-	position: relative;
-	bottom: -9px;
-	background: #6D6875;
-	padding: 0 4px;
+.title1 {
+  padding: 22px 24px 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.035), transparent);
 }
 
-h2{
-	border-bottom: 2px solid #FFCDB2;
-	color: #FFCDB2;
-	/* margin: 10px 10px; */ 
-	text-align: center;	
-	font-size: 18px;
-
+h1 {
+  margin: 0;
+  color: var(--text);
+  text-align: center;
+  font-size: clamp(1.25rem, 4vw, 1.65rem);
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  line-height: 1.35;
 }
 
-h3{
-	border-bottom: 2px solid #FFCDB2;
-	color: #FFCDB2;
-	margin: 10px 10px; 
-	text-align: center;	
-	font-size: 14px;
-	line-height: 2.8;
-} 
-/*
-.box{
-	margin: 24px auto;
-	background-color: #000000;
-	border-style: solid;
-	border-radius: 4px;  --- round corners ---
-	border-color: #ffffff; 
-	
-} */
-a{
-	color: #FFCDB2;
-	padding: 4px 0;
-	font-size: 14px;
-	text-decoration: none;
+h2 {
+  margin: 0 18px;
+  padding: 15px 8px 9px;
+  border-bottom: 1px solid var(--border);
+  color: var(--accent);
+  text-align: center;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.055em;
 }
 
-lu{
-	padding: 2px;
+h2 span {
+  position: static;
+  padding: 0;
+  background: transparent;
 }
 
-li{
-	text-align: center;
-	list-style-type: none;
-	text-decoration: none;
-	padding: 6px 2px;
-	margin: 6px 2px;
+h3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px 15px;
+  margin: 0 18px;
+  padding: 12px 8px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.86rem;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.box:last-of-type h3 {
+  border-bottom: 0;
+  padding-bottom: 20px;
+}
+
+a {
+  display: inline-block;
+  padding: 2px 0;
+  color: var(--muted);
+  font-size: inherit;
+  text-decoration: none;
+  text-underline-offset: 4px;
+  transition: color 140ms ease, text-decoration-color 140ms ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.clock-container {
+  margin: 0 24px 12px;
+  padding: 12px;
+  color: var(--text);
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+ul,
+lu {
+  padding: 2px;
+}
+
+li {
+  margin: 6px 2px;
+  padding: 6px 2px;
+  text-align: center;
+  list-style: none;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 16px 12px;
+  }
+
+  .title1 {
+    padding: 18px 16px 12px;
+  }
+
+  h2 {
+    margin-inline: 12px;
+  }
+
+  h3 {
+    margin-inline: 12px;
+    gap: 4px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
