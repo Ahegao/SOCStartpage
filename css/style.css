@@ -1,19 +1,18 @@
 /* KDE Plasma (Breeze Dark-style) look: matches a Dolphin window on a lunar wallpaper */
 
 :root {
-	--titlebar:   #2d2d2d;   /* window titlebar / sidebar */
-	--surface:    #333333;   /* main view */
-	--surface-hi: #3b3b3b;   /* hover / selected row */
+	--titlebar:   #2d2d2d;
+	--surface:    #333333;
+	--surface-hi: #3b3b3b;
 	--border:     #1f1f1f;
 	--text:       #eff0f1;
 	--text-dim:   #8e9092;
-	--accent:     #3daee9;   /* Plasma focus blue (used sparingly) */
+	--accent:     #3daee9;
 	--radius:     8px;
 	--font: "Noto Sans", "Open Sans", "Oxygen", "Segoe UI", system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
-
 html, body { height: 100%; margin: 0; }
 
 body {
@@ -23,7 +22,6 @@ body {
 	color: var(--text);
 }
 
-/* ---------- Window ---------- */
 .window {
 	position: fixed;
 	top: 50%;
@@ -40,7 +38,6 @@ body {
 	overflow: hidden;
 }
 
-/* ---------- Titlebar ---------- */
 .titlebar {
 	display: flex;
 	align-items: center;
@@ -67,7 +64,6 @@ body {
 }
 
 .wbtns { display: flex; gap: 6px; }
-
 .wbtns span {
 	width: 18px; height: 18px;
 	border-radius: 50%;
@@ -76,8 +72,6 @@ body {
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
 	position: relative;
 }
-
-/* chevron glyphs: minimize, maximize, close */
 .wbtns span::after {
 	content: "";
 	position: absolute;
@@ -92,12 +86,11 @@ body {
 	border: 0;
 	width: 10px; height: 10px;
 	background:
-		linear-gradient(45deg,  transparent 45%, #9a9a9a 45%, #9a9a9a 55%, transparent 55%),
+		linear-gradient(45deg, transparent 45%, #9a9a9a 45%, #9a9a9a 55%, transparent 55%),
 		linear-gradient(-45deg, transparent 45%, #9a9a9a 45%, #9a9a9a 55%, transparent 55%);
 	transform: translate(-50%, -50%) scale(.7);
 }
 
-/* ---------- Toolbar (location bar) ---------- */
 .toolbar {
 	display: flex;
 	align-items: center;
@@ -107,7 +100,6 @@ body {
 	border-bottom: 1px solid var(--border);
 	flex: none;
 }
-
 .toolbar .crumb {
 	flex: 1;
 	padding: 4px 8px;
@@ -116,10 +108,8 @@ body {
 	border-radius: 4px;
 	color: var(--text);
 }
-
 .toolbar .tool { color: var(--text-dim); font-size: 13px; }
 
-/* ---------- Content ---------- */
 .content {
 	overflow-y: auto;
 	padding: 6px 10px 10px;
@@ -128,8 +118,6 @@ body {
 }
 
 .box { margin-top: 10px; }
-
-/* "Places" / "Remote" / "Recent" style group headings */
 .box h2 {
 	margin: 0 0 4px;
 	padding: 2px 6px;
@@ -138,7 +126,6 @@ body {
 	letter-spacing: .02em;
 	color: var(--text-dim);
 }
-
 .box h3 {
 	margin: 0;
 	display: grid;
@@ -150,7 +137,8 @@ body {
 a {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: 9px;
+	min-height: 32px;
 	padding: 5px 8px;
 	border-radius: 4px;
 	color: var(--text);
@@ -159,25 +147,20 @@ a {
 	border: 1px solid transparent;
 }
 
-/* small Breeze-ish folder glyph */
-a::before {
-	content: "";
-	flex: none;
-	width: 14px; height: 11px;
-	border-radius: 2px;
-	background: #e8e8e8;
-	opacity: .85;
-	clip-path: polygon(0 0, 40% 0, 50% 15%, 100% 15%, 100% 100%, 0 100%);
+a .link-icon {
+	width: 18px;
+	height: 18px;
+	flex: 0 0 18px;
+	object-fit: contain;
+	border-radius: 4px;
 }
 
 a:hover {
 	background: var(--surface-hi);
-	border-color: rgba(61, 174, 233, .45);   /* Plasma hover/focus ring */
+	border-color: rgba(61, 174, 233, .45);
 }
-
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
-/* ---------- Status bar ---------- */
 .statusbar {
 	display: flex;
 	justify-content: space-between;
@@ -188,5 +171,4 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 	border-top: 1px solid var(--border);
 	flex: none;
 }
-
 #clock { font-variant-numeric: tabular-nums; }
