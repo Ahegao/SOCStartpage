@@ -1,90 +1,192 @@
-@font-face {
-	font-family: "Press Start 2P";
-	src: url(../fonts/PressStart2P.ttf);
+/* KDE Plasma (Breeze Dark-style) look: matches a Dolphin window on a lunar wallpaper */
+
+:root {
+	--titlebar:   #2d2d2d;   /* window titlebar / sidebar */
+	--surface:    #333333;   /* main view */
+	--surface-hi: #3b3b3b;   /* hover / selected row */
+	--border:     #1f1f1f;
+	--text:       #eff0f1;
+	--text-dim:   #8e9092;
+	--accent:     #3daee9;   /* Plasma focus blue (used sparingly) */
+	--radius:     8px;
+	--font: "Noto Sans", "Open Sans", "Oxygen", "Segoe UI", system-ui, sans-serif;
 }
 
-body{
-	background-image: url(../img/bg.jpg);
-	/*background-color: #202124;*/
-	font-family: "Press Start 2P", sans-serif;
+* { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; }
+
+body {
+	background: #000 url(../img/bg.jpg) center / cover no-repeat fixed;
+	font-family: var(--font);
+	font-size: 14px;
+	color: var(--text);
 }
 
-.clock-container{
-	text-align: center;
-	color: #ccc;
-	border-style: double;
-	margin: 0 33.33%;
-	padding: 10px 0;
-}
-
-.container1{
+/* ---------- Window ---------- */
+.window {
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background: #6D6875;
-	max-width: 480px;
-	border-style: solid;
-	/*border-radius: 4px;  --- round corners ---*/ 
-	border-color: #FFCDB2;
-	box-shadow: 6px 8px #121212;
+	width: min(560px, calc(100vw - 24px));
+	max-height: calc(100vh - 24px);
+	display: flex;
+	flex-direction: column;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, .6), 0 2px 6px rgba(0, 0, 0, .5);
+	overflow: hidden;
 }
 
-h1{
-	color: #FFCDB2;
-	text-align: center;	
-	font-size: 24px;
-	line-height: 1.6;
+/* ---------- Titlebar ---------- */
+.titlebar {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 0 10px;
+	height: 34px;
+	background: var(--titlebar);
+	flex: none;
 }
 
-h2 span{
+.titlebar .app-icon {
+	width: 16px; height: 16px;
+	border-radius: 4px;
+	background: linear-gradient(135deg, #3daee9, #1d6fa5);
+}
+
+.titlebar h1 {
+	flex: 1;
+	margin: 0;
+	font-size: 13px;
+	font-weight: 400;
+	color: var(--text);
+	opacity: .9;
+}
+
+.wbtns { display: flex; gap: 6px; }
+
+.wbtns span {
+	width: 18px; height: 18px;
+	border-radius: 50%;
+	background: #3a3a3a;
+	border: 1px solid #1a1a1a;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
 	position: relative;
-	bottom: -9px;
-	background: #6D6875;
-	padding: 0 4px;
 }
 
-h2{
-	border-bottom: 2px solid #FFCDB2;
-	color: #FFCDB2;
-	/* margin: 10px 10px; */ 
-	text-align: center;	
-	font-size: 18px;
-
+/* chevron glyphs: minimize, maximize, close */
+.wbtns span::after {
+	content: "";
+	position: absolute;
+	left: 50%; top: 50%;
+	width: 5px; height: 5px;
+	border-right: 1.5px solid #9a9a9a;
+	border-bottom: 1.5px solid #9a9a9a;
+	transform: translate(-50%, -75%) rotate(45deg);
+}
+.wbtns span:nth-child(2)::after { transform: translate(-50%, -25%) rotate(-135deg); }
+.wbtns span:nth-child(3)::after {
+	border: 0;
+	width: 10px; height: 10px;
+	background:
+		linear-gradient(45deg,  transparent 45%, #9a9a9a 45%, #9a9a9a 55%, transparent 55%),
+		linear-gradient(-45deg, transparent 45%, #9a9a9a 45%, #9a9a9a 55%, transparent 55%);
+	transform: translate(-50%, -50%) scale(.7);
 }
 
-h3{
-	border-bottom: 2px solid #FFCDB2;
-	color: #FFCDB2;
-	margin: 10px 10px; 
-	text-align: center;	
-	font-size: 14px;
-	line-height: 2.8;
-} 
-/*
-.box{
-	margin: 24px auto;
-	background-color: #000000;
-	border-style: solid;
-	border-radius: 4px;  --- round corners ---
-	border-color: #ffffff; 
-	
-} */
-a{
-	color: #FFCDB2;
-	padding: 4px 0;
-	font-size: 14px;
+/* ---------- Toolbar (location bar) ---------- */
+.toolbar {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 6px 10px;
+	background: var(--surface);
+	border-bottom: 1px solid var(--border);
+	flex: none;
+}
+
+.toolbar .crumb {
+	flex: 1;
+	padding: 4px 8px;
+	background: #2b2b2b;
+	border: 1px solid #262626;
+	border-radius: 4px;
+	color: var(--text);
+}
+
+.toolbar .tool { color: var(--text-dim); font-size: 13px; }
+
+/* ---------- Content ---------- */
+.content {
+	overflow-y: auto;
+	padding: 6px 10px 10px;
+	scrollbar-width: thin;
+	scrollbar-color: #555 transparent;
+}
+
+.box { margin-top: 10px; }
+
+/* "Places" / "Remote" / "Recent" style group headings */
+.box h2 {
+	margin: 0 0 4px;
+	padding: 2px 6px;
+	font-size: 13px;
+	font-weight: 300;
+	letter-spacing: .02em;
+	color: var(--text-dim);
+}
+
+.box h3 {
+	margin: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	gap: 2px;
+	font-weight: 400;
+}
+
+a {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 5px 8px;
+	border-radius: 4px;
+	color: var(--text);
+	font-size: 13px;
 	text-decoration: none;
+	border: 1px solid transparent;
 }
 
-lu{
-	padding: 2px;
+/* small Breeze-ish folder glyph */
+a::before {
+	content: "";
+	flex: none;
+	width: 14px; height: 11px;
+	border-radius: 2px;
+	background: #e8e8e8;
+	opacity: .85;
+	clip-path: polygon(0 0, 40% 0, 50% 15%, 100% 15%, 100% 100%, 0 100%);
 }
 
-li{
-	text-align: center;
-	list-style-type: none;
-	text-decoration: none;
-	padding: 6px 2px;
-	margin: 6px 2px;
+a:hover {
+	background: var(--surface-hi);
+	border-color: rgba(61, 174, 233, .45);   /* Plasma hover/focus ring */
 }
+
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* ---------- Status bar ---------- */
+.statusbar {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px 12px;
+	font-size: 12px;
+	color: var(--text-dim);
+	background: var(--surface);
+	border-top: 1px solid var(--border);
+	flex: none;
+}
+
+#clock { font-variant-numeric: tabular-nums; }

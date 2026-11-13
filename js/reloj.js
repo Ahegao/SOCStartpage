@@ -6,7 +6,7 @@ var clockEl = document.querySelector('#clock');
 
 function getTime() {
   return new Date().toLocaleTimeString('en-US', 
-     { hour12: false, hour: 'numeric', minute: 'numeric', second: 'numeric' }).toString();
+     { hour12: false, hour: "2-digit", minute: "2-digit" }).toString();
 }
 
 function setTime() {
