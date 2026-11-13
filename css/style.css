@@ -20,7 +20,7 @@
 
 html {
   min-height: 100%;
-  background: var(--bg);
+  background: #333333;
 }
 
 body {
@@ -31,12 +31,9 @@ body {
   place-items: center;
   color: var(--text);
   font-family: "Inter", "Noto Sans", "Segoe UI", system-ui, sans-serif;
-  background-color: var(--bg);
+  background-color: #333333;
   /* CSS-only atmospheric backdrop; no old raster wallpaper required. */
-  background-image:
-    radial-gradient(ellipse at 50% 8%, rgba(139, 148, 158, 0.17), transparent 48%),
-    radial-gradient(ellipse at 12% 88%, rgba(87, 100, 112, 0.13), transparent 42%),
-    linear-gradient(145deg, #202328 0%, #17191c 55%, #22252a 100%);
+  background-image: none;
   background-attachment: fixed;
 }
 
