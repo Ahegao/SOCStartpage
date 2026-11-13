@@ -3,7 +3,7 @@
 
 :root {
   color-scheme: dark;
-  --bg: #17191c;
+  --bg: #333333;
   --surface: rgba(39, 42, 47, 0.96);
   --surface-raised: #30343a;
   --border: #555b63;
@@ -31,9 +31,7 @@ body {
   place-items: center;
   color: var(--text);
   font-family: "Inter", "Noto Sans", "Segoe UI", system-ui, sans-serif;
-  background-color: #333333;
-  /* CSS-only atmospheric backdrop; no old raster wallpaper required. */
-  background-image: none;
+  background: #333333;
   background-attachment: fixed;
 }
 
