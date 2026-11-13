@@ -1,90 +1,52 @@
 <!DOCTYPE html>
-<html lang="eng">
-<html>
-
+<html lang="en">
 <head>
-<!-- Start -->
-<meta charset="UTF-8" />
-<title>Welcome to the Internet</title> <!--remove prototype when finished-->
-
-<!-- CSS ref -->
-<link href="css/style.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#333333" />
+  <title>Welcome to the Internet</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
-<body onload="startTime()">
-		
+<body>
+  <main class="container1">
+    <header class="title1">
+      <h1 id="title">Welcome to the Internet</h1>
+    </header>
 
+    <section class="box" aria-labelledby="imageboards-title">
+      <h2 id="imageboards-title"><span>Imageboards</span></h2>
+      <nav class="links" aria-label="Imageboards">
+        <a href="https://boards.4chan.org/ic/"><img class="link-icon" src="https://api.iconify.design/mdi/palette-outline.svg?color=%23d5b38c" alt="">Art/Critique</a>
+        <a href="https://boards.4chan.org/diy/"><img class="link-icon" src="https://api.iconify.design/mdi/tools.svg?color=%23d5b38c" alt="">Do It Yourself</a>
+        <a href="https://boards.4channel.org/vg/"><img class="link-icon" src="https://api.iconify.design/mdi/gamepad-variant-outline.svg?color=%23d5b38c" alt="">Vidya General</a>
+        <a href="https://boards.4chan.org/d/"><img class="link-icon" src="https://api.iconify.design/mdi/image-multiple-outline.svg?color=%23d5b38c" alt="">H Alternative</a>
+      </nav>
+    </section>
 
-	<div class="container1">
-			
-		<div class="title1">
-			<h1 id="title">Welcome to the Internet</h1>
-		</div>
-		
-		<!-- Uncomment for clock---	<div class="clock-container">
-				<div class="clock" id="clock"></div>
-			</div> -->
+    <section class="box" aria-labelledby="favorites-title">
+      <h2 id="favorites-title"><span>Favorites</span></h2>
+      <nav class="links" aria-label="Favorites">
+        <a href="https://www.facebook.com/"><img class="link-icon brand-icon" src="https://cdn.simpleicons.org/facebook/0866FF" alt="">Facebook</a>
+        <a href="https://www.reddit.com/"><img class="link-icon brand-icon" src="https://cdn.simpleicons.org/reddit/FF4500" alt="">Reddit</a>
+        <a href="https://bsky.app/"><img class="link-icon brand-icon" src="https://cdn.simpleicons.org/bluesky/0285FF" alt="">BlueSky</a>
+        <a href="https://twitter.com/"><img class="link-icon brand-icon" src="https://cdn.simpleicons.org/x/ E2E3E5" alt="">Twitter / X</a>
+        <a href="https://mail.google.com/mail/u/0/#inbox"><img class="link-icon brand-icon" src="https://cdn.simpleicons.org/gmail/EA4335" alt="">Gmail</a>
+        <a href="https://www.youtube.com/feed/subscriptions"><img class="link-icon brand-icon" src="https://cdn.simpleicons.org/youtube/FF0033" alt="">YouTube</a>
+        <a href="https://www.twitch.tv/directory/following/games"><img class="link-icon brand-icon" src="https://cdn.simpleicons.org/twitch/9146FF" alt="">Twitch</a>
+        <a href="https://sketch.pixiv.net/lives"><img class="link-icon brand-icon" src="https://cdn.simpleicons.org/pixiv/0096FA" alt="">Pixiv Sketch</a>
+        <a href="https://www.instagram.com/"><img class="link-icon brand-icon" src="https://cdn.simpleicons.org/instagram/E4405F" alt="">Instagram</a>
+        <a href="https://www.pinterest.com/"><img class="link-icon brand-icon" src="https://cdn.simpleicons.org/pinterest/BD081C" alt="">Pinterest</a>
+      </nav>
+    </section>
 
-		<div class="box">
-			<h2>
-				<span>Imageboards</span>
-				
-			</h2>
-				<h3>
-					<a href="https://boards.4chan.org/ic/">Art/Critique</a> 
-					<a href="https://boards.4chan.org/diy/">Do It Yourself</a>
-					<a href="https://boards.4channel.org/vg/">Vidya General</a> 
-					<a href="https://boards.4chan.org/d/">H Alternative</a>
-				</h3>
-		</div>
-	
-		<div class="box">
-			<h2><span>Favorites</span></h2>
-			<h3>
-				<a href="https://www.facebook.com/">-Facebook</a>
-				<a href="https://www.reddit.com/">-Reddit</a>
-				<a href="https://bsky.app/">-BlueSky</a>
-				<a href="https://twitter.com/">-Twitter</a>
-				<a href="https://mail.google.com/mail/u/0/#inbox">-Gmail</a>
-				<a href="https://www.youtube.com/feed/subscriptions">-Youtube</a>
-				<a href="https://www.twitch.tv/directory/following/games">-Twitch</a>
-				<a href="https://sketch.pixiv.net/lives">-Pixiv Sketch</a>
-				<!-- <a href="https://zenkit.com/c/PjPE6PZEy/art?v=70ZDJUh39A">-Zenkit-</a> --> 
-				<a href="https://www.instagram.com/">-Instagram</a>
-				<a href="https://www.pinterest.com/">-Pinterest-</a>
-				
-			</h3>
-		</div>
-	
-		<div class="box">
-				<h2><span>Other Stuff</span></h2>
-					
-			<h3>
-				<a href="https://exhentai.org/">SadPanda</a>
-				<a href="https://jpopsuki.eu/">Jpopsuki</a>
-			</h3>
-		</div>
-		
-		<!-- <div class="box">
-				<h2><span>Home Server</span></h2>
-					
-			<h3>
-				<a href="192.168.0.101:8084">QBClient</a>
-				<a href="https://192.168.0.101:9090/metrics/">Cockpit</a>
-				<a href="http://192.168.0.101:9000">Portainer</a>
-				<a href="http://192.168.0.101:8082">MangaReader</a>
-				<a href="http://192.168.0.101:8083">LANraragi</a>
-				<a href="http://192.168.0.101:8096/">Jellyfin</a>
-				<a href="http://192.168.0.101:8081/">Radarr</a>
-			</h3>
-		</div> --> 
-	
-		<!--scripts
-		<script src="js/reloj.js"></script>
-		
-		-->
-		
-	
-	</body>
-	
+    <section class="box" aria-labelledby="other-title">
+      <h2 id="other-title"><span>Other Stuff</span></h2>
+      <nav class="links" aria-label="Other stuff">
+        <a href="https://exhentai.org/"><img class="link-icon" src="https://api.iconify.design/mdi/book-open-page-variant-outline.svg?color=%23d5b38c" alt="">SadPanda</a>
+        <a href="https://jpopsuki.eu/"><img class="link-icon" src="https://api.iconify.design/mdi/music-note-sixteenth.svg?color=%23d5b38c" alt="">Jpopsuki</a>
+      </nav>
+    </section>
+  </main>
+</body>
 </html>
